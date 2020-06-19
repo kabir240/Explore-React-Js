@@ -1,0 +1,292 @@
+@media screen and (max-width: 480px) {
+  .customabs {
+    position: static;
+    left: 0;
+    bottom: 0;
+}
+.bgImg{
+    margin-bottom:50px;
+    display: none;
+}
+.card{
+    border: 0px solid rgba(255, 254, 254, 0.125);
+    margin: 10px auto;
+}
+
+.img17{
+    position: relative;
+    left: -50px;
+    top: 50px;
+    display:none;
+}
+.img16{
+    position: absolute;
+    top: -250px;
+    left: 50px;
+    display:none;
+}
+
+}
+
+
+.row-header{
+    margin:0px auto;
+    padding:0px auto;
+}
+
+.footer{
+    background-color: #212326;
+    margin:0px auto;
+    padding: 20px 0px 20px 0px;
+}
+.jumbotron {
+    background-color: white;
+}
+
+.address{
+    font-size:80%;
+    margin:0px;
+    color:#0f0f0f;
+}
+
+.bgrow{
+    background-color: #c5e0ec;
+    padding: 30px;
+    border: 5px solid #5a98ca;
+    border-radius: 20px
+}
+
+.navbar-dark {
+    background-color: #212326;
+}
+
+.modalheader{
+    background-color: #212326;
+    color: floralwhite;
+       
+}
+.card{
+    border: 0px solid rgba(255, 254, 254, 0.125);
+}
+.close{
+    color: white;
+}
+.cardfooter{
+    background-color: #212326;
+    color: white;
+}
+
+.textcss{
+    font-size: large;
+    color: #808080;
+    font-family: cursive;
+}
+
+.headcss{
+        font-size: xxx-large;
+        font-family: fantasy;
+        color: #212326;
+}
+
+.customshadow{
+    box-shadow: 2px 1px 10px 5px #dbd0d0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}   
+
+.blockquotecls{
+background-color: #e0f5ff;
+padding: 75px;
+margin-bottom: 80px;
+box-shadow: -4px 4px 7px 0px #a2bdc0
+}
+
+.quote{
+    font-size: x-large;
+    font-family: monospace;
+    color: #004e46;
+}
+
+.textcss1{
+    font-family: serif;
+    color: #0d3f58;
+    border-left: 2px solid #b3a0a0;
+}
+
+.customrel{
+    position: relative;
+}
+
+.customabs{
+    position: absolute;
+    left: 29%;
+    bottom: 15%;
+}
+
+
+
+.row-content{
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    min-height:400px;
+}
+
+.headcss1{
+    font-size: xx-large;
+    font-family: fantasy;
+    color: #212326;
+}
+
+.customshadow2{
+        margin: 10px auto;
+        box-shadow: 2px 1px 10px 5px #dbd0d0;
+}
+
+.list-marked{
+    list-style-type: none;
+    font-size: large;
+    color: #959595;
+    font-family: cursive;
+    margin: 10px auto;
+    padding:5px auto;
+}
+
+.bgImg{
+    margin-bottom:50px;
+}
+
+.blockquotecls2{
+    background-color: #0163c8;
+    border: 2px solid #3f97c1;
+    border-radius: 20px;
+    box-shadow: -3px 8px 16px 2px #85a362;
+}
+
+.textcss2{
+    font-size: x-large;
+    font-family: cursive;
+    color: #0575aa;
+}
+
+.quote2{
+    font-size: xx-large;
+    font-family: monospace;
+    color: #89ff00;
+}
+.text-muted{
+    color: #808080;
+    font-family: cursive;
+}
+
+.btn-dark{
+    color: #fff;
+    background-color: #212326;
+    border-color: #212326;
+}
+
+.row-content1{
+    padding: 10px;
+}
+
+.img17{
+    position: relative;
+    left: -50px;
+    top: 50px;
+}
+.img16{
+    position: absolute;
+    top: -250px;
+    left: 50px;
+}
+
+.textcss3{
+    font-size: large;
+    font-family: cursive;
+    color: black;
+}
+
+.headcss2{
+    font-size: xx-large;
+    font-family: fantasy;
+    color:white;
+}
+
+.cardHeader{
+    background-color: rgb(255, 255, 255);
+    border-bottom: 0px solid rgba(0,0,0,.125);
+}
+
+.coloricon{
+    color: #9E9E9E;
+}
+
+.breadcrumb{
+    margin: auto;
+    background-color: #f1f8ff;
+}
+
+.dropdown-menu{
+    background-color: #9E9E9E;
+}
+
+.dropdown-item:hover {
+    color: #ffffff;
+    background-color: #212326;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a{
+    color: #212326;
+}
+.cardimage:hover {
+    box-shadow: 0px 1px 10px 0px black;
+}
+
+.row-content3{
+        margin-right: 40%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+}    
+
+.button1{
+    color: #292f35;
+    background-color: #c4eeec;
+    border-color: #c4eeec;
+}
+
+.button1:hover{ 
+    color: #c4eeec;
+    background-color: #1e2227;
+    border-color: #1e2227;
+}
+.textcss3{
+    font-size: x-large;
+    font-family: cursive;
+    color: #ffffff;
+}
+
+.overlay2:hover{
+    mix-blend-mode: overlay;
+}
+    
+.button2{
+    color: #c4eeec;
+    background-color: #1e2227;
+    border-color: #1e2227;
+}    
+
+.button2:hover{
+    color: #ffffff;
+    background-color: #424d56;
+    border-color: #424d56;
+}   
+
+.inputbox{
+    border: 1px solid #e5e5e5;
+    padding: 13px 19px;
+    background-color: #ffffff;
+}
