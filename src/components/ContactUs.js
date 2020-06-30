@@ -1,31 +1,41 @@
 import React, {Component} from 'react';
-import {Form, FormGroup, Label, Col, Input, FormText, Button,Card, CardHeader, CardBody, CardFooter} from 'reactstrap';
+import {Label, Col, Row, Button,Card, CardHeader, CardBody, CardFooter} from 'reactstrap';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Control, Form, Errors, actions} from 'react-redux-form';
 import { Link } from 'react-router-dom';
 
+
+
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => val && (val.length >= len);
+const isNumber = (val) => !isNaN(Number(val));
+const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
 class ContactUs extends Component{
     constructor(props){
         super(props);
-        this.handleLogin=this.handleLogin.bind(this);
+
+
+        this.handleSubmit=this.handleSubmit.bind(this);
     }
 
-    handleLogin(event){
-        alert("Thank You "+ this.firstname.value +" For Send YOur details! We will Contact You soon!");
-        event.preventDefault();
+    handleSubmit(values) {
+        this.props.resetFeedbackForm();
+        this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.message);
     }
 
     render(){
         return(
             <div>
-                <div>
+                <div className="breadcrumb">
                     <Breadcrumb>
                         <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                         <BreadcrumbItem active>ContactUs</BreadcrumbItem>
                     </Breadcrumb>
                 </div>
                 <div className="row headcss m-5" style={{margin:"0px auto"}}>CONTACT OR VISIT US</div>
-                <div className="row bgImg row-content" style={{backgroundImage: "url('assets/images/pic-51.jpg')", backgroundRepeat:"no-repeat", backgroundSize: "cover"}}>
+                <div className="row row-content" style={{backgroundImage: "url('assets/images/pic-51.jpg')", backgroundRepeat:"no-repeat", backgroundSize: "cover"}}>
                     <div className="col-12 col-md-6" style={{position: "relative",top: "42px"}}>
                         <blockquote className="blockquote blockquotecls">
                             <div style={{borderLeft: "3px solid #212326"}}>
@@ -35,35 +45,95 @@ class ContactUs extends Component{
                             </div>
                         </blockquote>
                     </div>
-                    <div className="col-12 col-md-6" style={{position: "absolute",bottom: "77px",right:"90px"}}>
-                             <Form onSubmit={this.handleLogin}>
-                                <FormGroup row>
+                    <div className="col-12 col-md-6" style={{position: "absolute",bottom: "30px",right:"90px"}}>
+                             <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
+                                <Row className="form-group">
                                     <Col sm={6}>
-                                    <Input type="text" name="firstname" id="firstname" placeholder="FirstName"
-                                    innerRef={(input) => this.firstname = input} required  className="inputbox"/>
-                            </Col>
-                                    <Col sm={6}>
-                                    <Input type="text" name="lastname" id="lastname" placeholder="LastName"
-                                    innerRef={(input) => this.lastname = input} required className="inputbox"/>
+                                    <Control.text model=".firstname" id="firstname" name="firstname"
+                                     placeholder="FirstName"
+                                     className="form-control"
+                                     validators={{
+                                         required, minLength: minLength(3), maxLength: maxLength(15)
+                                     }}
+                                     />
+                                     <Errors 
+                                        className="text-danger"
+                                        model=".firstname"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            minLength: 'Must be greater than 2 chararcters',
+                                            maxLength: 'Must be 15 characters or less'
+                                        }}
+                                     />
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row>
                                     <Col sm={6}>
-                                    <Input type="email" name="email" id="exampleEmail" placeholder="Email" 
-                                    innerRef={(input) => this.email = input} required className="inputbox"/>
+                                    <Control.text model=".lastname" id="lastname" name="lastname"
+                                     placeholder="Last Name"
+                                     className="form-control"
+                                     validators={{
+                                         required, minLength: minLength(3), maxLength: maxLength(15)
+                                     }}
+                                     />
+                                     <Errors 
+                                        className="text-danger"
+                                        model=".lastname"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            minLength: 'Must be greater than 2 chararcters',
+                                            maxLength: 'Must be 15 characters or less'
+                                        }}
+                                     />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col sm={6}>
+                                    <Control.text model=".email" id="email" name="email"
+                                        placeholder="Email"
+                                        className="form-control"
+                                        validators={{
+                                            required, validEmail
+                                        }}
+                                    />
+                                    <Errors 
+                                        className="text-danger"
+                                        model=".email"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            validEmail: 'Invalid Email address'
+                                        }}
+                                    />
                                     </Col>
                                     <Col sm={6}>
-                                    <Input type="phone" name="phone" id="examplephone" placeholder="Phone" 
-                                    innerRef={(input) => this.phone = input} required className="inputbox"/>
+                                    <Control.text model=".telnum" id="telnum" name="telnum"
+                                        placeholder="Tel. Number"
+                                        className="form-control"
+                                        validators={{
+                                            required, minLength: minLength(3), maxLength: maxLength(15), isNumber
+                                        }}
+                                         />
+                                    <Errors 
+                                        className="text-danger"
+                                        model=".telnum"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            minLength: 'Must be greater than 2 numbers',
+                                            maxLength: 'Must be 15 numbers or less',
+                                            isNumber: 'Must be a number'
+                                        }}
+                                    />
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row>
+                                </Row>
+                                <Row className="mt-3" >
                                     <Col>
-                                    <Input type="textarea" name="intro" id="intro" 
-                                    innerRef={(input) => this.intro = input} required className="inputbox"  placeholder="Your Message"/>
+                                    <Control.textarea model=".message" id="message" name="message"
+                                       rows='5' className="form-control" placeholder="Write Your message..." />
                                     </Col>
-                                </FormGroup>
-                                <Button type="submit" value="submit" className="button2 p-30">SEND MESSAGE</Button>
+                                </Row>
+                                <Button type="submit" value="submit" className="button2 p-30 mt-3">SEND MESSAGE</Button>
                                 </Form>
                     </div>
                 </div>

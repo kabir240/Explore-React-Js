@@ -244,7 +244,12 @@ a{
 }
 .cardimage:hover {
     box-shadow: 0px 1px 10px 0px black;
+    cursor: pointer;
 }
+
+.overlay:hover{
+}
+
 
 .row-content3{
         margin-right: 40%;
@@ -271,6 +276,7 @@ a{
 
 .overlay2:hover{
     mix-blend-mode: overlay;
+    cursor: pointer;
 }
     
 .button2{
@@ -289,4 +295,206 @@ a{
     border: 1px solid #e5e5e5;
     padding: 13px 19px;
     background-color: #ffffff;
+}
+
+.img17:hover{
+    transform: translate3d(-20%, -23%, 0);
+    transition: all ease-in-out .5s;
+}
+
+.img16:hover{
+    transform: translate3d(20%, 10%, 0);
+    transition: all ease-in-out .5s;
+}
+
+.breadcrumb{
+    margin-top: 25px;
+}
+
+.price-group__sale {
+    color: #ee1616;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 1000;
+}
+
+.price-group__price-old {
+    text-decoration: line-through;
+    color: #292f35;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 1000;
+}
+
+.textcss4{
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-top: 20px;
+    margin-bottom: 1rem;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-family:  sans-serif;
+    color: #737576;
+}
+
+.icon-list{
+    font-family: sans-serif;
+    font-size: medium;
+    line-height: 1.625;
+    font-weight: 400;
+    color: #737576;
+}
+
+.icon-list2{
+    font-family: sans-serif;
+    font-size: medium;
+    line-height: 1.625;
+    font-weight: 700;
+    color: #737576;
+}
+
+.textcss5{
+    width: 100%;
+    font-size: medium;
+    line-height: 1.8;
+    margin-top: 20px;
+    margin-bottom: 1rem;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-family:  cursive;
+    color: #737576;
+}
+.nav-tabs {
+    border-bottom: 0px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+    padding: 17px 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #292f35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #c4c4c4;
+    border-radius: 1px;
+}
+
+.nav-tabs .nav-item {
+    margin: 5px;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-color: #c4eeec;
+    background-color: #c4eeec;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover{
+    border-color: #c4eeec;
+    background-color: #c4eeec;
+    cursor:pointer;
+}
+
+.button2{
+    color: #292f35;
+    background-color: #c4eeec;
+    border-color: #c4eeec;
+}
+
+.button2:hover{ 
+    color: #ffffff;
+    background-color: #ff2313;
+    border-color: #ff2313;
+
+}
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: #ffffff;
+    background-color: #ff2313;
+    border-color: #ff2313;
+}
+
+.btn-secondary.focus, .btn-secondary:focus {
+    color: #ffffff;
+    background-color: #ff2313;
+    border-color: #ff2313;
+}
+
+.modal-content2 {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 0px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+
+.btn-dark:hover {
+    color: #fff;
+    background-color: #23272b;
+    border-color: #ffffff;
+    border-radius: 20px;
+}
+
+.btn-dark.focus, .btn-dark:focus {
+   color: #fff;
+    background-color: #23272b;
+    border-color: #ffffff;
+    border-radius: 20px;
+}
+
+.navbar-dark .navbar-brand {
+    color: #fff;
+    display: contents;
+}
+
+.scroll {
+  opacity: 0.8;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 20px;
+  color: #292f35;
+  background-color: #c4eeec;
+  border-color: #c4eeec;
+}
+
+.scroll:hover {
+    opacity: 1;
+    color: #c4eeec;
+    background-color: #e22517;
+    border-color: #e22517;
+    border-radius: 20px;
+}
+
+button:focus {
+    outline: 0px dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+}
+
+.modal-content2{
+    background-color: transparent;
 }

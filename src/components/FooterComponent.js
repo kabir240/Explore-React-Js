@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button,Modal, ModalHeader, ModalBody, ModalFooter,
-Form, FormGroup, Label, Col, Input, FormText} from 'reactstrap';
+ Label, Col, Row, FormText} from 'reactstrap';
 import { Link } from "react-router-dom";
+import { Control, Form, Errors, actions} from 'react-redux-form';
+
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => val && (val.length >= len);
+const isNumber = (val) => !isNaN(Number(val));
+const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
 class Footer extends Component {
     constructor(props){
@@ -12,7 +19,7 @@ class Footer extends Component {
         };
 
         this.toggleModal=this.toggleModal.bind(this);
-        this.handleLogin=this.handleLogin.bind(this);
+        this.handleSignUp=this.handleSignUp.bind(this);
     }
 
     toggleModal(){
@@ -21,10 +28,9 @@ class Footer extends Component {
         });
     }
 
-    handleLogin(event){
-        this.toggleModal();
-        alert("Thank You "+ this.firstname.value +" For SignUp");
-        event.preventDefault();
+    handleSignUp(values){
+        this.props.resetSignUpForm();
+        this.props.postSignUp(values.firstname, values.lastname, values.email, values.password, values.description);
     }
 
     render(){
@@ -66,38 +72,108 @@ class Footer extends Component {
                     Signup
                 </ModalHeader>
                 <ModalBody>
-                    <Form onSubmit={this.handleLogin}>
-                    <FormGroup>
-                        <Label htmlfor="firstname">FirsName</Label>
-                        <Input type="text" name="firstname" id="firstname" placeholder="Enter FirstName"
-                        innerRef={(input) => this.firstname = input} required />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label htmlfor="lastname">LastName</Label>
-                        <Input type="text" name="lastname" id="lastname" placeholder="Enter LastName"
-                        innerRef={(input) => this.lastname = input} required />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label htmlfor="email">Email</Label>
-                        <Input type="email" name="email" id="exampleEmail" placeholder="Enter Email" 
-                        innerRef={(input) => this.email = input} required/>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label htmlfor="password">Password</Label>
-                        <Input type="password" name="password" id="password" placeholder="Create password"
-                        innerRef={(input) => this.password = input}  required/>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label htmlfor="intro">Your Description</Label>
-                        <Input type="textarea" name="intro" id="intro" 
-                        innerRef={(input) => this.intro = input} required />
-                        <FormText color="muted">
-                        Describe YourSelf in few Words.
-                        </FormText>
-                    </FormGroup>
-                    <ModalFooter>
-                        <Button type="submit" value="submit" color="dark"><span className="fa fa-user fa-lg"></span>Create Account!</Button>
-                    </ModalFooter>
+                    <Form model="signup" onSubmit={(values)=>this.handleSignUp(values)}>
+                    <Row className="form-group">
+                        <Label htmlFor="firstname" md={12}>First Name</Label>
+                        <Col md={12}>
+                            <Control.text model=".firstname" id="firstname" name="firstname"
+                                placeholder="First Name"
+                                className="form-control"
+                                validators={{
+                                    required, minLength: minLength(3), maxLength: maxLength(15)
+                                }}
+                                    />
+                            <Errors 
+                                className="text-danger"
+                                model=".firstname"
+                                show="touched"
+                                messages={{
+                                    required: 'Required',
+                                    minLength: 'Must be greater than 2 characters',
+                                    maxLength: 'Must be 15 characters or less'
+                                }}
+                            />
+                        </Col>
+                    </Row>
+                    <Row className="form-group">
+                        <Label htmlFor="lastname" md={12}>Last Name</Label>
+                        <Col md={12}>
+                            <Control.text model=".lastname" id="lastname" name="lastname"
+                                placeholder="Last Name"
+                                className="form-control"
+                                validators={{
+                                    required, minLength: minLength(3), maxLength: maxLength(15)
+                                }}
+                                />
+                            <Errors 
+                                className="text-danger"
+                                model=".lastname"
+                                show="touched"
+                                messages={{
+                                    required: 'Required',
+                                    minLength: 'Must be greater than 2 characters',
+                                    maxLength: 'Must be 15 characters or less'
+                                }}
+                            />
+                        </Col>
+                    </Row>
+                    <Row className="form-group">
+                        <Label htmlFor="email" md={12}>Email</Label>
+                        <Col md={12}>
+                            <Control.text model=".email" id="email" name="email"
+                                placeholder="Email"
+                                className="form-control"
+                                validators={{
+                                    required, validEmail
+                                }}
+                            />
+                            <Errors 
+                                className="text-danger"
+                                model=".email"
+                                show="touched"
+                                messages={{
+                                    required: 'Required',
+                                    validEmail: 'Invalid Email address'
+                                }}
+                            />
+                        </Col>
+                    </Row>
+                    <Row className="form-group">
+                        <Label htmlFor="password" md={12}>Email</Label>
+                        <Col md={12}>
+                            <Control.password model=".password" id="password" name="password"
+                                placeholder="Password"
+                                className="form-control"
+                                validators={{
+                                    required
+                                }}
+                            />
+                            <Errors 
+                                className="text-danger"
+                                model=".password"
+                                show="touched"
+                                messages={{
+                                    required: 'Required'
+                                }}
+                            />
+                        </Col>
+                    </Row>
+                    <Row className="form-group">
+                        <Label htmlFor="description" md={12}>Your Description</Label>
+                        <Col md={12}>
+                            <Control.textarea model=".description" id="description" name="description"
+                                rows="3"
+                                className="form-control" />
+                            <FormText color="muted">
+                            Describe YourSelf in few Words.
+                            </FormText>
+                        </Col>
+                    </Row>
+                    <Row className="form-group">
+                        <Col md={{size:12, offset: 7}}>
+                            <Button type="submit" value="submit" color="dark"><span className="fa fa-user fa-lg"></span>Create Account!</Button>
+                        </Col>
+                    </Row>
                     </Form>
                 </ModalBody>
             </Modal>

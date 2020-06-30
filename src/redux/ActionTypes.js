@@ -1,0 +1,12 @@
+export const ADD_TOPBLOGS = 'ADD_TOPBLOGS';
+export const TOPBLOGS_LOADING = 'TOPBLOGS_LOADING';
+export const TOPBLOGS_FAILED = 'TOPBLOGS_FAILED';
+export const ADD_BLOGS = 'ADD_BLOGS';
+export const BLOGS_LOADING = 'BLOGS_LOADING';
+export const BLOGS_FAILED = 'BLOGS_FAILED';
+export const ADD_TOURS = 'ADD_TOURS';
+export const TOURS_LOADING = 'TOURS_LOADING';
+export const TOURS_FAILED = 'TOURS_FAILED';
+export const ADD_SERVICE = 'ADD_SERVICE';
+export const SERVICE_LOADING = 'SERVICE_LOADING';
+export const SERVICE_FAILED = 'SERVICE_FAILED';

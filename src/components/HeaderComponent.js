@@ -40,7 +40,7 @@ class Header extends Component{
     render(){
         return(
             <React.Fragment>
-                <Navbar dark expand="md" className="fixed-top" style={{position: "relative"}}>
+                <Navbar dark expand="xl" className="fixed-top">
                     <div className="container">
                         <div className="row" style={{width: "100%"}}>
                             <div className="col-md-4">
@@ -62,37 +62,16 @@ class Header extends Component{
                                         <span className="fa fa-info fa-lg"></span> About Us
                                 </NavLink>
                                 </NavItem>
-                                <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
-                                    <span className="fa fa-fighter-jet fa-lg"></span> Tours
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                    <Link to="/solotour">Solo Tour</Link>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                    <Link to="/grouptour">Group Tour</Link>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                   <Link to="/coupletour">Couples Tour</Link>
-                                    </DropdownItem>
-                                </DropdownMenu>
-                                </UncontrolledDropdown>
-                                <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
-                                    <span className="fa fa-edit fa-lg"></span> Service
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                    <Link to="/justbreak">Just A Short break</Link>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                    <Link to="/longholidays">Long Holidays</Link>
-                                    </DropdownItem>
-                                </DropdownMenu>
-                                </UncontrolledDropdown>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/gallery"><span className="fa fa-photo fa-lg"></span> Gallery</NavLink>
+                                <NavLink className="nav-link" to="/tours">
+                                        <span className="fa fa-fighter-jet fa-lg"></span> Tours
+                                </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/service"><span className="fa fa-edit fa-lg"></span> Service</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/gallery"><span className="fa fa-photo fa-lg"></span> Blogs</NavLink>
                                 </NavItem>
                                 <NavItem>
                                 <NavLink className="nav-link" to="/contactus"><span className="fa fa-address-book fa-lg"></span> Contact Us</NavLink>

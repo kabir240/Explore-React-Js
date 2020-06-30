@@ -1,13 +1,58 @@
 import React, { Component } from 'react';
-import {Card, CardBody, CardImg, CardText, CardTitle} from 'reactstrap';
+import {Card, CardBody, CardImg, CardText, CardTitle, Spinner} from 'reactstrap';
 import Slider from './CarouselComponent.js';
+import { baseUrl } from '../shared/baseUrl';
 
-class Home extends Component{
-    constructor(props){
-        super(props);
+
+function RenderTopblogs({topblog}) {
+    return(
+        <Card>
+            <CardImg top width="100%" className="cardimage" src={baseUrl + topblog.image} alt={topblog.name} />
+            <CardBody>
+            <CardText>
+                <small className="text-muted">{topblog.date}</small>
+            </CardText>
+            <CardTitle className="headcss1">{topblog.name}</CardTitle>
+            <CardText className="textcss">{topblog.description}</CardText>
+            </CardBody>
+        </Card>
+    );
+}
+
+
+const Home = (props) => {
+
+    const hotbloglist = props.topblogs.topblogs.map((topblog) => {
+        return (
+            <div key={topblog.id} className="col-12 col-md-4 mt-5 mb-5">
+                <RenderTopblogs topblog={topblog} />
+            </div>
+        );
+    });
+
+    if(props.topblogs.isLoading){
+        return(
+            <div className="container">
+                <div className="row row-content justify-content-center">
+                    <Spinner animation="grow" className="mt-5"/><p className="textcss mt-5">Loading...</p>
+                </div>
+            </div>
+        );
     }
 
-    render(){
+    else if (props.topblogs.errMess) {
+        return(
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <h4>{props.topblogs.errMess}</h4>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    else
         return(
         <div>
             <Slider />
@@ -101,47 +146,11 @@ class Home extends Component{
             <div className="container">
                 <div className="row justify-content-center"><h2 className="headcss mt-5">OUR BLOG POSTS</h2></div>
                 <div className="row row-content">
-                    <div className="col-12 col-md-4 mt-5 mb-5">
-                        <Card>
-                            <CardImg top width="100%" className="cardimage" src="assets/images/pic-13.jpg" alt="Card image cap" />
-                            <CardBody>
-                            <CardText>
-                                <small className="text-muted">February 1, 2019</small>
-                            </CardText>
-                            <CardTitle className="headcss1">5 PLACES TO VISIT THIS WINTER</CardTitle>
-                            <CardText className="textcss">New Year and Christmas holidays is a great occasion to travel somewhere. You can either go somewhere with you family or friends, or even alone....</CardText>
-                            </CardBody>
-                        </Card>
-                    </div>
-                    <div className="col-12 col-md-4 mt-5 mb-5">
-                        <Card>
-                            <CardImg top width="100%" className="cardimage" src="assets/images/pic-14.jpg" alt="Card image cap" />
-                            <CardBody>
-                            <CardText>
-                                <small className="text-muted">February 1, 2019</small>
-                            </CardText>
-                            <CardTitle className="headcss1">Budget Trips for Winter Break</CardTitle>
-                            <CardText className="textcss">Budget trip doesn’t mean boring! There are numerous places worth visiting even if you don’t have much money. The golden sands of Florida and California...</CardText>
-                            </CardBody>
-                        </Card>
-                    </div>
-                    <div className="col-12 col-md-4 mt-5 mb-5">
-                        <Card>
-                            <CardImg top width="100%" className="cardimage" src="assets/images/pic-15.jpg" alt="Card image cap" />
-                            <CardBody>
-                            <CardText>
-                                <small className="text-muted">February 1, 2019</small>
-                            </CardText>
-                            <CardTitle className="headcss1">Walking to Machu Picchu, Peru</CardTitle>
-                            <CardText className="textcss">Machu Picchu is mysterious and attractive place for all tourists visiting Peru. If you agree to take this path you need to know more information...</CardText>
-                            </CardBody>
-                        </Card>
-                    </div>
+                    {hotbloglist}
                 </div>
             </div>
         </div>
         );
-    }
 }
 
 export default Home;
