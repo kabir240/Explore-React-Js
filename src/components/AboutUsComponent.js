@@ -13,13 +13,16 @@ class AboutUs extends Component{
     render(){
         return(
             <div>
-                <div className="breadcrumb">
+                <div className="breadcrumb breadcrumbBgimage">
                     <Breadcrumb>
-                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>AboutUs</BreadcrumbItem>
+                        <div className="row">
+                            <h3 className="col-12" style={{color: "#ffff"}}>About</h3>
+                            <BreadcrumbItem><Link to="/home" style={{color: "#ffff"}}>Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>AboutUs</BreadcrumbItem>
+                        </div>
                     </Breadcrumb>
                 </div>
-                <div className="row row-content mb-5" style={{backgroundImage: "url('assets/images/pic-18.jpg')", backgroundRepeat:"no-repeat", backgroundSize: "cover"}}>
+                <div className="row row-content mb-5" style={{backgroundImage: "url('assets/images/pic-53.jpg')", backgroundRepeat:"no-repeat", backgroundSize: "cover"}}>
                     <div className="container">
                         <div className="row align-items-center row-content1">
                             <div className="col-12 col-md-6 col-xl-3" >

@@ -57,6 +57,22 @@
 }
 
 .navbar-dark {
+    background-color: transparent ;
+    padding: 20px;
+    border-bottom: 0.5px solid #ffff;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+    color: #fff;
+    border-top: 2px solid #ffff;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: black;
+}
+
+.scrolled{
+    position: fixed;
     background-color: #212326;
 }
 
@@ -79,6 +95,16 @@
 .textcss{
     font-size: large;
     color: #808080;
+    font-family: cursive;
+}
+
+.textmutedcolor {
+    color:#ffff;
+}
+
+.textcss8 {
+    font-size: large;
+    color: #ffff;
     font-family: cursive;
 }
 
@@ -137,6 +163,12 @@ box-shadow: -4px 4px 7px 0px #a2bdc0
     color: #212326;
 }
 
+.headcss5{
+    font-size: xx-large;
+    font-family: fantasy;
+    color: #ffed4f;
+}
+
 .customshadow2{
         margin: 10px auto;
         box-shadow: 2px 1px 10px 5px #dbd0d0;
@@ -180,8 +212,8 @@ box-shadow: -4px 4px 7px 0px #a2bdc0
 
 .btn-dark{
     color: #fff;
-    background-color: #212326;
-    border-color: #212326;
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .row-content1{
@@ -222,9 +254,25 @@ box-shadow: -4px 4px 7px 0px #a2bdc0
 
 .breadcrumb{
     margin: auto;
-    background-color: #f1f8ff;
+    justify-content: center;
+    padding-top: 65px;
+    background-color: transparent;
+    padding-left: 80px;
 }
 
+.breadcrumbBgimage {
+    background-image: url(/assets/images/pic-52.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.checkbgimage {
+    background-image: url(/assets/images/pic-54.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px auto;
+}
+ 
 .dropdown-menu{
     background-color: #9E9E9E;
 }
@@ -305,10 +353,6 @@ a{
 .img16:hover{
     transform: translate3d(20%, 10%, 0);
     transition: all ease-in-out .5s;
-}
-
-.breadcrumb{
-    margin-top: 25px;
 }
 
 .price-group__sale {
@@ -452,14 +496,14 @@ a{
 
 .btn-dark:hover {
     color: #fff;
-    background-color: #23272b;
+    background-color: transparent;
     border-color: #ffffff;
     border-radius: 20px;
 }
 
 .btn-dark.focus, .btn-dark:focus {
    color: #fff;
-    background-color: #23272b;
+    background-color: transparent;
     border-color: #ffffff;
     border-radius: 20px;
 }
@@ -496,5 +540,45 @@ button:focus {
 }
 
 .modal-content2{
+    background-color: transparent;
+}
+
+.checkoutbutton {
+    background-color: #212326;
+    color: white;
+}
+
+.checkoutbutton:hover {
+    background-color: #2f3134;
+    color: #e3d6e6;
+}
+
+.overley{
+    background-color: black;
+    position: absolute;
+    opacity:0.5;
+    width:100%;
+    height:100%;
+}
+
+.cardcustom {
+    position:relative;
+}
+
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 57px;
+}
+
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
     background-color: transparent;
 }

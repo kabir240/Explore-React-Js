@@ -19,6 +19,22 @@ class Header extends Component{
 
     }
 
+    componentDidMount() {
+        window.addEventListener('scroll' , () => {
+            const isTop = window.scrollY > 100;
+            const nav = document.getElementById('nav');
+            if (isTop) {
+                nav.classList.add('scrolled');
+            }else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll');
+    }
+
     ToggleNav(){
         this.setState({
             isNavOpen: !this.state.isNavOpen
@@ -40,7 +56,7 @@ class Header extends Component{
     render(){
         return(
             <React.Fragment>
-                <Navbar dark expand="xl" className="fixed-top">
+                <Navbar  dark expand="xl" fixed="top" id="nav">
                     <div className="container">
                         <div className="row" style={{width: "100%"}}>
                             <div className="col-md-4">
@@ -53,28 +69,28 @@ class Header extends Component{
                             <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav className="mr-auto" navbar>
                                 <NavItem>
-                                <NavLink className="nav-link" to="/home">
+                                <NavLink className="nav-link" to="/home" style={{color: "white"}}>
                                     <span className="fa fa-home fa-lg"></span> Home
                                 </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                <NavLink className="nav-link" to="/aboutus">
+                                <NavLink className="nav-link" to="/aboutus" style={{color: "white"}}>
                                         <span className="fa fa-info fa-lg"></span> About Us
                                 </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                <NavLink className="nav-link" to="/tours">
+                                <NavLink className="nav-link" to="/tours" style={{color: "white"}}>
                                         <span className="fa fa-fighter-jet fa-lg"></span> Tours
                                 </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/service"><span className="fa fa-edit fa-lg"></span> Service</NavLink>
+                                    <NavLink className="nav-link" to="/service" style={{color: "white"}}><span className="fa fa-edit fa-lg"></span> Service</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/gallery"><span className="fa fa-photo fa-lg"></span> Blogs</NavLink>
+                                    <NavLink className="nav-link" to="/gallery" style={{color: "white"}}><span className="fa fa-photo fa-lg"></span> Blogs</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                <NavLink className="nav-link" to="/contactus"><span className="fa fa-address-book fa-lg"></span> Contact Us</NavLink>
+                                <NavLink className="nav-link" to="/contactus" style={{color: "white"}}><span className="fa fa-address-book fa-lg"></span> Contact Us</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <Button color="dark" className="btn-sm mt-1 ml-1" onClick={this.ToggleModal}>

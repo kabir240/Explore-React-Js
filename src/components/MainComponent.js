@@ -14,6 +14,8 @@ import Service from './ServiceComponent';
 import ContactUs from './ContactUs';
 import TourDetails from './ToursDetails';
 import ServiceDetails from './ServiceDetails';
+import CheckOut from './CheckOutComponent';
+import BlogDetails from './BlogDetails';
 
 
 
@@ -77,12 +79,28 @@ class Main extends Component {
             );
         }
 
-        const TourWithId= ({match}) => {
+        const BlogWithId = ({match}) => {
             return(
-                <TourDetails tour={this.props.tours.tours.filter((tour) => tour.id === parseInt(match.params.tourId,10))[0]} 
+                <BlogDetails blog={this.props.blogs.blogs.filter((blog) => blog.id === parseInt(match.params.blogId))[0]}
                 isLoading= {this.props.tours.isLoading}
                 errMess= {this.props.tours.errMess} />
             );
+        }
+
+        const TourWithId= ({match}) => {
+            return(
+                <TourDetails tour={this.props.tours.tours.filter((tour) => tour.id === parseInt(match.params.tourId,10))[0]} 
+                isLoading= {this.props.blogs.isLoading}
+                errMess= {this.props.blogs.errMess} />
+            );
+        }
+
+        const TourWithIdCheckout= ({match}) => {
+            return(
+                <CheckOut tour={this.props.tours.tours.filter((tour) => tour.id === parseInt(match.params.tourId,10))[0]}
+                isLoading= {this.props.tours.isLoading}
+                errMess= {this.props.tours.errMess}/>
+           );
         }
 
         const ServiceWithId= ({match}) => {
@@ -102,9 +120,11 @@ class Main extends Component {
                     <Route exact path='/aboutus' component={() => <AboutUs />} />
                     <Route exact path='/tours' component={TourPage} />
                     <Route exact path='/gallery' component={GalleryPage} />
+                    <Route exact path='/gallery/:blogId' component={BlogWithId} />
                     <Route exact path='/service' component={ServicePage} />
                     <Route exact path='/contactus' component={()=><ContactUs resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} /> } />
                     <Route exact path='/tours/:tourId' component={TourWithId} />
+                    <Route exact path='/tours/Checkout/:tourId' component={TourWithIdCheckout} />
                     <Route exact path='/service/:serviceId' component={ServiceWithId} />
                     <Redirect to="/home" />
                 </Switch>

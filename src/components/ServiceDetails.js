@@ -62,13 +62,16 @@ const ServiceDetails = (props) => {
     else if (props.service != null)
             return(
                 <div>
-                    <div className="breadcrumb">
-                        <Breadcrumb>
-                            <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                            <BreadcrumbItem><Link to="/service">service</Link></BreadcrumbItem>
-                            <BreadcrumbItem active>serviceDetails</BreadcrumbItem>
-                        </Breadcrumb>
-                    </div>
+                    <div className="breadcrumb breadcrumbBgimage">
+                    <Breadcrumb>
+                        <div className="row">
+                            <h3 className="col-12" style={{color: "#ffff"}}>{props.service.name}</h3>
+                            <BreadcrumbItem><Link to="/home" style={{color: "#ffff"}}>Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem style={{color: "#ffff"}}>services</BreadcrumbItem>
+                            <BreadcrumbItem active>{props.service.name}</BreadcrumbItem>
+                        </div>
+                    </Breadcrumb>
+                </div>
                     <div className="container">
                         <div className="row headcss1 mt-5 mb-5" style={{margin:"0px auto"}}>{props.service.name}</div>
                         <div className="row mb-5" style={{margin:"0px auto"}}><CardImg height="544px" width="100%" src={baseUrl+props.service.image} alt={"img"} /></div>
@@ -80,6 +83,7 @@ const ServiceDetails = (props) => {
                             <div className="col-12"><p className="icon-list2 mb-3">Lotus, fidelis cobaltums diligenter manifestum de altus, clemens galatae. Hercle, humani generis placidus!, advena! Albus zetas ducunt ad palus. Heu, emeritis fortis! Altus, domesticus adgiums rare consumere de fatalis, peritus stella.</p></div>
                             <div className="col-12"><p className="textcss5 mb-5">Salvus exemplar rare resuscitabos finis est. Altus vox diligenter falleres genetrix est. Cur abactor accelerare? Nunquam perdere onus. Abactor de altus mons, dignus quadra! Guttus de primus vox, quaestio nutrix! Ubi est altus turpis? Est fatalis nuclear vexatum iacere, cesaris. Sunt medicinaes vitare velox, mirabilis solemes. Est bassus mens, cesaris. Nunquam vitare turpis. Cur repressor cadunt? Hercle, nomen mirabilis!. Eheu. Clabulares ortum! Teres palus aliquando anhelares historia est. Placidus nomens ducunt ad fiscina. Liberis peregrinationes, tanquam bassus guttus. Magnum, nobilis turpiss absolute talem de varius, azureus classis. Eleatess credere! Cur hippotoxota studere? Cur elogium mori? Rusticus agripeta una apertos torus est. Nunquam convertam fides. Vae, flavum adiurator! Heu, noster cobaltum! Pol, competition! Primus habena interdum promissios gabalium est. Ubi est teres uria? Equisos velum in antverpia! Lotus toruss ducunt ad acipenser. Ubi est emeritis secula? Cum extum ridetis, omnes danistaes anhelare teres, placidus messores. A falsis, calcaria flavum diatria. Eheu. Cum bursa ortum, omnes stellaes vitare raptus, clemens vortexes.</p></div>
                         </div>
+                        <div className="row m-5 headcss1">Explore Best {props.service.name}</div>
                         <div className="row mb-5" style={{margin:"0px auto"}}>
                             {ServiceTourlist}
                         </div>

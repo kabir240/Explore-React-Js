@@ -13,11 +13,6 @@ const ModalExample = (props) => {
 
   return (
     <div>
-      <div className="row justify-content-center mb-5" style={{margin:"0px auto"}}>
-        <Link to="/tours"><Button className="button1 mr-1" title="back to tourlist" size="lg"><i className="fa fa-arrow-left" /> Back</Button></Link>
-        <Button className="button2" onClick={toggle} size="lg"><i className="fa fa-pencil" /> Book Now!</Button>
-        <Link to={`/service/${props.tour.serviceId}`}><Button title="Go To servicePage" className="button1 mr-1 ml-1" size="lg"><i className="fa fa-arrow-right" /> Go</Button></Link>
-      </div>
       <Modal isOpen={modal} toggle={toggle} className="modal-content2">
         <Alert color="dark">
         <div className="textcss" style={{textAlign: "center"}}><i className="fa fa-sign-in fa-lg"></i> Please Sign Up!</div>
@@ -132,11 +127,14 @@ const TourDetails = (props) => {
     else if (props.tour != null)
         return(
             <div>
-                <div className="breadcrumb">
+                <div className="breadcrumb breadcrumbBgimage">
                     <Breadcrumb>
-                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem><Link to="/tours">Tours</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>ToursDetails</BreadcrumbItem>
+                        <div className="row">
+                            <h3 className="col-12" style={{color: "#ffff"}}>{props.tour.name}</h3>
+                            <BreadcrumbItem><Link to="/home" style={{color: "#ffff"}}>Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem style={{color: "#ffff"}}>Tours</BreadcrumbItem>
+                            <BreadcrumbItem active>{props.tour.name}</BreadcrumbItem>
+                        </div>
                     </Breadcrumb>
                 </div>
                 <div className="container">
@@ -162,6 +160,11 @@ const TourDetails = (props) => {
                 <div className="container">
                     <div className="row row-content">
                         <Example tour={props.tour}  />
+                        <div className="row justify-content-center mb-5" style={{margin:"0px auto"}}>
+                          <Link to="/tours"><Button className="button1 mr-1" title="back to tourlist" size="lg"><i className="fa fa-arrow-left" /> Back</Button></Link>
+                          <Link to={`/tours/Checkout/${props.tour.id}`}><Button className="button2" size="lg"><i className="fa fa-pencil" /> Book Now!</Button></Link>
+                          <Link to={`/service/${props.tour.serviceId}`}><Button title="Go To servicePage" className="button1 mr-1 ml-1" size="lg"><i className="fa fa-arrow-right" /> Go</Button></Link>
+                        </div>
                     </div>
                 </div>
                 <ModalExample tour={props.tour} />

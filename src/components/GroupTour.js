@@ -67,10 +67,13 @@ const Tour = (props) => {
     else
         return(
             <div>
-                <div className="breadcrumb">
+                <div className="breadcrumb" style={{backgroundImage: "url('assets/images/pic-52.jpg')", backgroundRepeat:"no-repeat", backgroundSize: "cover"}}>
                     <Breadcrumb>
-                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>Tours</BreadcrumbItem>
+                        <div className="row">
+                            <h3 className="col-12" style={{color: "#ffff"}}>Tours</h3>
+                            <BreadcrumbItem><Link to="/home" style={{color: "#ffff"}}>Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>Tours</BreadcrumbItem>
+                        </div>
                     </Breadcrumb>
                 </div>
                 <div className="container">

@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import { Card, CardBody, CardImg, CardText, CardTitle, Badge, Breadcrumb, BreadcrumbItem, Button, Spinner} from 'reactstrap';
+import { Card, CardBody, CardImg, CardText, CardTitle, Badge, Breadcrumb, BreadcrumbItem, Button, Spinner, CardImgOverlay} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 
 
 function RenderBlogsItem({blog}){
     return(
-        <Card>
+        <Card inverse className="cardcustom">
             <CardImg top width="100%" height="350px" className="cardimage" src={baseUrl + blog.image} alt={blog.name} />
-            <CardBody>
-            <CardTitle className="headcss1">{blog.name}</CardTitle>
-            <CardText className="textcss">{blog.description}</CardText>
+            <div className="overley"></div>
+            <CardImgOverlay>
+            <CardTitle className="headcss5">{blog.name}</CardTitle>
+            <CardText className="textcss8">{blog.description}</CardText>
             <CardText>
-                <small className="text-muted">{blog.label}</small>
+                <small className="textmutedcolor">{blog.label}</small>
             </CardText>
             <CardText>
-                <Button color="info" className="btn-lg button1">Read More</Button>
+                <Link to={`/gallery/${blog.id}`}><Button color="info" className="btn-lg button1">Read More</Button></Link>
             </CardText>
-            </CardBody>
+            </CardImgOverlay>
         </Card>
     );
 }
@@ -26,7 +27,7 @@ const Gallery = (props) =>{
 
     const BlogsList = props.blogs.blogs.map((blog) => {
         return(
-            <div key={blog.id} className="col-12 col-md-4 mt-5 mb-5">
+            <div key={blog.id} className="col-12 col-md-6 mt-5 mb-5">
                 <RenderBlogsItem blog={blog} />
             </div>
         );
@@ -58,15 +59,18 @@ const Gallery = (props) =>{
 
         return(
             <div>
-                <div className="breadcrumb">
+                <div className="breadcrumb breadcrumbBgimage">
                     <Breadcrumb>
-                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>Gallery</BreadcrumbItem>
+                        <div className="row">
+                            <h3 className="col-12" style={{color: "#ffff"}}>Blogs</h3>
+                            <BreadcrumbItem><Link to="/home" style={{color: "#ffff"}}>Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>Blogs</BreadcrumbItem>
+                        </div>
                     </Breadcrumb>
                 </div>
                 <div className="container">
                     <div className="row row-content">
-                        <div className="col-12 headcss mb-5">Explore our Gallery</div>
+                        <div className="col-12 headcss mb-5">Explore our Blogs</div>
                         {BlogsList}
                     </div>
                 </div>

@@ -54,10 +54,13 @@ const Service = (props) =>{
     else
         return(
             <div>
-                <div className="breadcrumb">
+                <div className="breadcrumb breadcrumbBgimage">
                     <Breadcrumb>
-                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>Service</BreadcrumbItem>
+                        <div className="row">
+                            <h3 className="col-12" style={{color: "#ffff"}}>Service</h3>
+                            <BreadcrumbItem><Link to="/home" style={{color: "#ffff"}}>Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>Service</BreadcrumbItem>
+                        </div>
                     </Breadcrumb>
                 </div>
                 <div className="container">
