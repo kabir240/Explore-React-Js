@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+project Demo : https://www.linkedin.com/posts/suman-das-522065175_exploring-react-js-with-redux-architechture-activity-6693990926911721472-s4a7
+
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
